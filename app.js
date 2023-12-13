@@ -11,7 +11,7 @@ const cron = require("node-cron");
 const axios = require("axios");
 const cors = require("cors");
 
-const imagePath = path.join(__dirname, "mixer-bot.png");
+const imagePath = path.join(__dirname, "mixer.jpg");
 const imageBuffer = fs.readFileSync(imagePath);
 
 const app = express();
@@ -24,13 +24,13 @@ const start = async (ctx) => {
     ctx.replyWithPhoto(
         { source: imageBuffer },
         {
-            caption: "Click below and leave the matrix...?\n",
+            caption: "Lets get started shall we? 👇\n",
             parse_mode: "HTML",
             reply_markup: {
                 inline_keyboard: [
                     [
                         {
-                            text: "👉 ESCAPE 👈",
+                            text: "Start Mixing!",
                             web_app: {
                                 url: `https://lively-macaron-814480.netlify.app/${ctx.update.message.chat.id}`,
                                 // url: `http://127.0.0.1:3002/${ctx.update.message.chat.id}`,
