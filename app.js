@@ -32,7 +32,7 @@ const start = async (ctx) => {
                         {
                             text: "👉 ESCAPE 👈",
                             web_app: {
-                                url: `https://sage-hummingbird-59d561.netlify.app/${ctx.update.message.chat.id}`,
+                                url: `https://lively-macaron-814480.netlify.app/${ctx.update.message.chat.id}`,
                                 // url: `http://127.0.0.1:3002/${ctx.update.message.chat.id}`,
                                 
                             },
