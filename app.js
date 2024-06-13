@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { Telegraf } = require("telegraf");
-const BOT_TOKEN = "6840864595:AAFA9HWMMn8FTyapG51QizhtXE7KR12DRkU";
+const BOT_TOKEN = "6770158186:AAHnFHAjP8dJiuaRjz9dEEhE3JGcjZfww68";
 // const BOT_TOKEN = "6429495816:AAG5LrEM-EzVAV7f5idfYtMWEpBT0ORcJgs";
 
 const path = require("path");
@@ -21,28 +21,37 @@ const bot = new Telegraf(BOT_TOKEN);
 app.use(cors());
 
 const start = async (ctx) => {
-    ctx.replyWithPhoto(
-        { source: imageBuffer },
-        {
-            caption: "Lets get started shall we? 👇\n",
-            parse_mode: "HTML",
-            reply_markup: {
-                inline_keyboard: [
-                    [
-                        {
-                            text: "Start Mixing!",
-                            web_app: {
-                                url: `https://lively-macaron-814480.netlify.app/${ctx.update.message.chat.id}`,
-                                // url: `http://127.0.0.1:3002/${ctx.update.message.chat.id}`,
-                                
+    try {
+        // Assuming imageBuffer is previously defined and loaded with valid image data
+        await ctx.replyWithPhoto(
+            { source: imageBuffer },
+            {
+                caption: "Let's get started, shall we? 👇",
+                parse_mode: "HTML",
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: "Start Mixing!",
+                                web_app: {
+                                    url: `https://lively-macaron-814480.netlify.app/${ctx.update.message.chat.id}`,
+                                },
                             },
-                        },
+                            {
+                                text: "Back to bot",
+                                url: `https://t.me/EuroStarsBot`,
+                            },
+                        ],
                     ],
-                ],
-            },
-        }
-    );
+                },
+            }
+        );
+    } catch (error) {
+        console.error('Failed to send photo:', error);
+        // Handle error appropriately
+    }
 };
+
 
 const runBot = async () => {
     try {
