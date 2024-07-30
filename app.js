@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { Telegraf } = require("telegraf");
-const BOT_TOKEN = "6770158186:AAHnFHAjP8dJiuaRjz9dEEhE3JGcjZfww68";
+const BOT_TOKEN = "7201003991:AAFN2LhdAuTSuBfMqHKRu6583m536kflso4";
 // const BOT_TOKEN = "6429495816:AAG5LrEM-EzVAV7f5idfYtMWEpBT0ORcJgs";
 
 const path = require("path");
@@ -34,13 +34,11 @@ const start = async (ctx) => {
                             {
                                 text: "Start Mixing!",
                                 web_app: {
+                                    // url: `https://127.0.0.1:3001/${ctx.update.message.chat.id}`,
                                     url: `https://lively-macaron-814480.netlify.app/${ctx.update.message.chat.id}`,
                                 },
                             },
-                            {
-                                text: "Back to bot",
-                                url: `https://t.me/EuroStarsBot`,
-                            },
+                          
                         ],
                     ],
                 },
